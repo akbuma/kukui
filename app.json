@@ -1,0 +1,12 @@
+{
+  "name": "Kukui",
+  "displayName": "Kukui",
+  "expo": {
+    "name": "Kukui",
+    "slug": "Kukui",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
