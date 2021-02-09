@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Sets } from './Components/Sets';
+import Sets from './Components/Sets';
 
 export default function App() {
   return (

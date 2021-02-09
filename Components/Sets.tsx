@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Text, SafeAreaView } from 'react-native';
+import { SafeAreaView, SectionList, Text } from 'react-native';
 import { getAllSets } from './../api';
 import { CardSetData } from '../types/tcgTypes';
 
 interface SetsProps {}
 
-export const Sets: React.FC<SetsProps> = ({}) => {
+const Sets: React.FC<SetsProps> = ({}) => {
   const [cardSets, setCardSets] = useState<CardSetData[] | null>(null);
 
   useEffect(() => {
-    let data = _getCardSets();
-    console.log(data);
+    _getCardSets();
   }, []);
 
   const _getCardSets = async () => {
@@ -20,7 +19,16 @@ export const Sets: React.FC<SetsProps> = ({}) => {
 
   return (
     <SafeAreaView>
-      <Text>Sets</Text>
+      <SectionList
+        sections={cardSets!}
+        keyExtractor={(item, index) => item.name + index}
+        renderItem={({ item }) => <Text>{item.name}</Text>}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text>***{title}***</Text>
+        )}
+      />
     </SafeAreaView>
   );
 };
+
+export default Sets;

@@ -1,8 +1,15 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
+import { CardSet } from '../types/tcgTypes';
 
-interface SetItemProps {}
+interface SetItemProps {
+  Set: CardSet;
+}
 
-export const SetItem: React.FC<SetItemProps> = ({}) => {
-  return <Text>Set Item</Text>;
+export const SetItem: React.FC<SetItemProps> = ({ Set }) => {
+  return (
+    <View>
+      <Text>Text</Text>
+    </View>
+  );
 };
