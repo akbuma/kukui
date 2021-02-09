@@ -14,6 +14,7 @@ export interface CardSet {
     symbol: string;
     logo: string;
   };
+  empty: boolean;
 }
 
 export interface CardSetHash {

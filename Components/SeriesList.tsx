@@ -7,7 +7,7 @@ interface SeriesListProps {
   // seriesSets: CardSet[];
 }
 
-const data = [
+const data: CardSet[] = [
   {
     id: 'base1',
     name: 'Base',
@@ -24,6 +24,7 @@ const data = [
       symbol: 'https://images.pokemontcg.io/base1/symbol.png',
       logo: 'https://images.pokemontcg.io/base1/logo.png',
     },
+    empty: false,
   },
   {
     id: 'base2',
@@ -41,6 +42,7 @@ const data = [
       symbol: 'https://images.pokemontcg.io/base2/symbol.png',
       logo: 'https://images.pokemontcg.io/base2/logo.png',
     },
+    empty: false,
   },
   {
     id: 'basep',
@@ -58,15 +60,42 @@ const data = [
       symbol: 'https://images.pokemontcg.io/basep/symbol.png',
       logo: 'https://images.pokemontcg.io/basep/logo.png',
     },
+    empty: false,
   },
 ];
 
 const SeriesList: React.FC<SeriesListProps> = ({}) => {
+  const _formatData = (arr: CardSet[], numColumns: number) => {
+    const totalRows = Math.floor(arr.length / numColumns);
+    let totalLastRow = arr.length - totalRows * numColumns;
+    while (totalLastRow !== 0 && totalLastRow !== numColumns) {
+      data.push({
+        id: '-',
+        name: '-',
+        series: '-',
+        printedTotal: 0,
+        total: 0,
+        legalities: {},
+        ptcgoCode: '-',
+        releaseDate: '-',
+        updatedAt: '-',
+        images: {
+          symbol: '',
+          logo: '',
+        },
+        empty: true,
+      });
+      totalLastRow++;
+    }
+    return arr;
+  };
+
   return (
     <FlatList
-      data={data}
+      data={_formatData(data, 2)}
       renderItem={({ item }) => <SeriesListItem set={item} />}
       keyExtractor={(item, id) => item.name + id}
+      numColumns={2}
     />
   );
 };
