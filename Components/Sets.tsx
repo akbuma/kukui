@@ -10,6 +10,7 @@ const Sets: React.FC<SetsProps> = ({}) => {
 
   useEffect(() => {
     _getCardSets();
+    // console.log(data);
   }, []);
 
   const _getCardSets = async () => {
