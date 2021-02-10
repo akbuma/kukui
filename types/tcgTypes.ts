@@ -23,5 +23,5 @@ export interface CardSetHash {
 
 export interface CardSetData {
   title: string;
-  data: CardSet[];
+  data: CardSet[][];
 }

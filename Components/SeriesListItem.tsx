@@ -25,13 +25,13 @@ const SeriesListItem: React.FC<SeriesListItemProps> = ({ set }) => {
 const styles = StyleSheet.create({
   set: {
     backgroundColor: 'red',
-    width: 100,
-    height: 100,
+    width: 150,
+    height: 150,
     borderWidth: 1,
   },
   setImage: {
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
   },
   invisible: {
     backgroundColor: 'blue',

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { SafeAreaView, SectionList, Text } from 'react-native';
 import { getAllSets } from './../api';
 import { CardSetData } from '../types/tcgTypes';
+import SeriesList from './SeriesList';
 
 interface SetsProps {}
 
@@ -10,7 +11,6 @@ const Sets: React.FC<SetsProps> = ({}) => {
 
   useEffect(() => {
     _getCardSets();
-    // console.log(data);
   }, []);
 
   const _getCardSets = async () => {
@@ -22,8 +22,8 @@ const Sets: React.FC<SetsProps> = ({}) => {
     <SafeAreaView>
       <SectionList
         sections={cardSets!}
-        keyExtractor={(item, index) => item.name + index}
-        renderItem={({ item }) => <Text>{item.name}</Text>}
+        keyExtractor={(item, index) => item[0].id + index}
+        renderItem={({ item }) => <SeriesList seriesSets={item} />}
         renderSectionHeader={({ section: { title } }) => (
           <Text>***{title}***</Text>
         )}

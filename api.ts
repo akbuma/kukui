@@ -25,6 +25,6 @@ export const getAllSets = async () => {
   );
   return Object.keys(sectionListData).map((series) => ({
     title: series,
-    data: sectionListData[series],
+    data: [sectionListData[series]],
   }));
 };
