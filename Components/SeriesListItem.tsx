@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View } from 'react-native';
 import { CardSet } from '../types/tcgTypes';
+import { globalFont } from '../constants/globalStyles';
+import styled from 'styled-components/native';
 
 interface SeriesListItemProps {
   set: CardSet;
@@ -10,32 +12,45 @@ const SeriesListItem: React.FC<SeriesListItemProps> = ({ set }) => {
   return set.empty ? (
     <View />
   ) : (
-    <View style={styles.set}>
-      <Image
-        style={styles.setImage}
-        source={{ uri: set.images.logo }}
-        resizeMode="contain"
-      />
-      <Text>{set.name}</Text>
-      <Text>{set.releaseDate}</Text>
-    </View>
+    <SetView>
+      <SetImage source={{ uri: set.images.logo }} resizeMode="contain" />
+      <SetTitleText>{set.name}</SetTitleText>
+      <SetReleaseText>{set.releaseDate}</SetReleaseText>
+    </SetView>
   );
 };
 
-const styles = StyleSheet.create({
-  set: {
-    backgroundColor: 'red',
-    width: 200,
-    height: 200,
-    borderWidth: 1,
-  },
-  setImage: {
-    width: 40,
-    height: 40,
-  },
-  invisible: {
-    backgroundColor: 'transparent',
-  },
-});
+const SetView = styled.View`
+  width: 175px;
+  height: 175px;
+  border-width: 1px;
+  margin: 5px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SetImage = styled.Image`
+  width: 85px;
+  height: 85px;
+`;
+
+const SetTitleText = styled.Text`
+  margin-top: 5px;
+  font-weight: bold;
+  align-items: center;
+  text-align: center;
+  font-family: ${globalFont};
+  line-height: 20px;
+  font-size: 20px;
+`;
+
+const SetReleaseText = styled.Text`
+  margin-top: 5px;
+  align-items: center;
+  text-align: center;
+  font-family: ${globalFont};
+  font-size: 10px;
+`;
 
 export default SeriesListItem;

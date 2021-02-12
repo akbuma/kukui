@@ -36,7 +36,7 @@ const Sets: React.FC<SetsProps> = ({}) => {
 
 const SafeAreaView = styled.SafeAreaView`
   align-items: center;
-  background-color: papayawhip;
+  background-color: #fff;
 `;
 
 const StyledSectionHeader = styled.Text`
@@ -45,7 +45,7 @@ const StyledSectionHeader = styled.Text`
   font-family: ${globalFont};
   padding-top: 5px;
   padding-bottom: 5px;
-  background-color: papayawhip;
+  background-color: #fff;
 `;
 
 export default Sets;
