@@ -1,5 +1,5 @@
 import React from 'react';
-import Sets from './Components/Sets';
+import Sets from './components/Sets';
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';

@@ -8,7 +8,7 @@ interface SeriesListItemProps {
 
 const SeriesListItem: React.FC<SeriesListItemProps> = ({ set }) => {
   return set.empty ? (
-    <View style={(styles.set, styles.invisible)} />
+    <View />
   ) : (
     <View style={styles.set}>
       <Image
@@ -25,8 +25,8 @@ const SeriesListItem: React.FC<SeriesListItemProps> = ({ set }) => {
 const styles = StyleSheet.create({
   set: {
     backgroundColor: 'red',
-    width: 150,
-    height: 150,
+    width: 200,
+    height: 200,
     borderWidth: 1,
   },
   setImage: {
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   invisible: {
-    backgroundColor: 'blue',
+    backgroundColor: 'transparent',
   },
 });
 

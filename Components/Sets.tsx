@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { SafeAreaView, SectionList, Text } from 'react-native';
-import { getAllSets } from './../api';
+import { SectionList } from 'react-native';
+import { getAllSets } from '../api';
 import { CardSetData } from '../types/tcgTypes';
+import { globalFont } from '../constants/globalStyles';
 import SeriesList from './SeriesList';
+import styled from 'styled-components/native';
 
 interface SetsProps {}
 
@@ -25,11 +27,25 @@ const Sets: React.FC<SetsProps> = ({}) => {
         keyExtractor={(item, index) => item[0].id + index}
         renderItem={({ item }) => <SeriesList seriesSets={item} />}
         renderSectionHeader={({ section: { title } }) => (
-          <Text>***{title}***</Text>
+          <StyledSectionHeader>{title.toUpperCase()}</StyledSectionHeader>
         )}
       />
     </SafeAreaView>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  align-items: center;
+  background-color: papayawhip;
+`;
+
+const StyledSectionHeader = styled.Text`
+  text-align: center;
+  font-size: 20px;
+  font-family: ${globalFont};
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: papayawhip;
+`;
 
 export default Sets;
