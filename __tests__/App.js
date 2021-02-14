@@ -8,5 +8,6 @@ import renderer from 'react-test-renderer';
 jest.useFakeTimers();
 
 it('renders correctly', async () => {
-  renderer.create(<App />);
+  const tree = renderer.create(<App />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
