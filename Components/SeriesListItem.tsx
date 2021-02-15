@@ -12,15 +12,15 @@ const SeriesListItem: React.FC<SeriesListItemProps> = ({ set }) => {
   return set.empty ? (
     <View />
   ) : (
-    <SetView>
+    <PressableSet onPress={() => console.log('pressed')}>
       <SetImage source={{ uri: set.images.logo }} resizeMode="contain" />
       <SetTitleText>{set.name}</SetTitleText>
       <SetReleaseText>{set.releaseDate}</SetReleaseText>
-    </SetView>
+    </PressableSet>
   );
 };
 
-const SetView = styled.View`
+const PressableSet = styled.Pressable`
   width: 175px;
   height: 175px;
   border-width: 1px;
