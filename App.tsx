@@ -1,5 +1,7 @@
 import React from 'react';
 import SetsMain from './components/Sets/SetsMain';
+import SeriesCardsList from './components/Sets/SeriesCardsList';
+
 import 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,6 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator initialRouteName={'Sets'}>
         <Tab.Screen name="Sets" component={SetsMain} />
+        <Tab.Screen name="Collection" component={SeriesCardsList} />
       </Tab.Navigator>
     </NavigationContainer>
   );

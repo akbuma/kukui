@@ -36,7 +36,7 @@ export const getAllSets = async () => {
  */
 export const getAllCards = async (setID: string) => {
   const response = await fetch(
-    `https://api.pokemontcg.io/v2/cards?q=set.id${setID}`,
+    `https://api.pokemontcg.io/v2/cards?q=set.id:${setID}`,
     {
       method: 'GET',
       headers: {
