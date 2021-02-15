@@ -3,7 +3,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 
 export type SetStackParamList = {
   Sets: undefined;
-  AllCards: undefined;
+  CardsList: undefined;
   Card: undefined;
 };
 
