@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { CardSet } from '../types/tcgTypes';
-import { globalFont } from '../constants/globalStyles';
+import { CardSet } from '../../types/tcgTypes';
+import { globalFont } from '../../constants/globalStyles';
 import styled from 'styled-components/native';
 
 interface SeriesListItemProps {

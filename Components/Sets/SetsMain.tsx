@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { SectionList } from 'react-native';
-import { getAllSets } from '../api';
-import { CardSetData } from '../types/tcgTypes';
-import { globalFont } from '../constants/globalStyles';
+import { getAllSets } from '../../api';
+import { CardSetData } from '../../types/tcgTypes';
+import { globalFont } from '../../constants/globalStyles';
 import SeriesList from './SeriesList';
 import styled from 'styled-components/native';
 

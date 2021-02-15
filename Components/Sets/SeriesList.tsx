@@ -1,6 +1,6 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { CardSet } from '../types/tcgTypes';
+import { CardSet } from '../../types/tcgTypes';
 import SeriesListItem from './SeriesListItem';
 
 interface SeriesListProps {
