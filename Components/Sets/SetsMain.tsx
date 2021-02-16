@@ -47,6 +47,7 @@ const StyledSectionHeader = styled.Text`
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: #fff;
+  color: #e91e63;
 `;
 
 export default Sets;
