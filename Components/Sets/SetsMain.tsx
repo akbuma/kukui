@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { SectionList } from 'react-native';
-import { getAllSets } from '../api';
-import { CardSetData } from '../types/tcgTypes';
-import { globalFont } from '../constants/globalStyles';
+import { getAllSets } from '../../api';
+import { CardSetData } from '../../types/tcgTypes';
+import { globalFont } from '../../constants/globalStyles';
+import { SetStackNavProps } from './setsParamList';
 import SeriesList from './SeriesList';
 import styled from 'styled-components/native';
 
-interface SetsProps {}
-
-const Sets: React.FC<SetsProps> = ({}) => {
+const Sets = ({ navigation, route }: SetStackNavProps<'Sets'>) => {
   const [cardSets, setCardSets] = useState<CardSetData[] | null>(null);
 
   useEffect(() => {
@@ -25,7 +24,9 @@ const Sets: React.FC<SetsProps> = ({}) => {
       <SectionList
         sections={cardSets!}
         keyExtractor={(item, index) => item[0].id + index}
-        renderItem={({ item }) => <SeriesList seriesSets={item} />}
+        renderItem={({ item }) => (
+          <SeriesList seriesSets={item} navigation={navigation} route={route} />
+        )}
         renderSectionHeader={({ section: { title } }) => (
           <StyledSectionHeader>{title.toUpperCase()}</StyledSectionHeader>
         )}
@@ -46,6 +47,7 @@ const StyledSectionHeader = styled.Text`
   padding-top: 5px;
   padding-bottom: 5px;
   background-color: #fff;
+  color: #e91e63;
 `;
 
 export default Sets;

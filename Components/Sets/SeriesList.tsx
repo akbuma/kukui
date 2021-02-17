@@ -1,13 +1,18 @@
 import React from 'react';
 import { FlatList } from 'react-native';
-import { CardSet } from '../types/tcgTypes';
+import { CardSet } from '../../types/tcgTypes';
+import { SetStackNavProps } from './setsParamList';
 import SeriesListItem from './SeriesListItem';
 
-interface SeriesListProps {
+interface SeriesListProps extends SetStackNavProps<'Sets'> {
   seriesSets: CardSet[];
 }
 
-const SeriesList: React.FC<SeriesListProps> = ({ seriesSets }) => {
+const SeriesList: React.FC<SeriesListProps> = ({
+  seriesSets,
+  navigation,
+  route,
+}) => {
   const _formatData = (arr: CardSet[], numColumns: number) => {
     const totalRows = Math.floor(arr.length / numColumns);
     let totalLastRow = arr.length - totalRows * numColumns;
@@ -36,7 +41,9 @@ const SeriesList: React.FC<SeriesListProps> = ({ seriesSets }) => {
   return (
     <FlatList
       data={_formatData(seriesSets, 2)}
-      renderItem={({ item }) => <SeriesListItem set={item} />}
+      renderItem={({ item }) => (
+        <SeriesListItem set={item} navigation={navigation} route={route} />
+      )}
       keyExtractor={(item, id) => item.name + id}
       numColumns={2}
     />

@@ -1,26 +1,34 @@
 import React from 'react';
 import { View } from 'react-native';
-import { CardSet } from '../types/tcgTypes';
-import { globalFont } from '../constants/globalStyles';
+import { CardSet } from '../../types/tcgTypes';
+import { globalFont } from '../../constants/globalStyles';
+import { SetStackNavProps } from './setsParamList';
 import styled from 'styled-components/native';
 
-interface SeriesListItemProps {
+interface SeriesListItemProps extends SetStackNavProps<'Sets'> {
   set: CardSet;
 }
 
-const SeriesListItem: React.FC<SeriesListItemProps> = ({ set }) => {
+const SeriesListItem: React.FC<SeriesListItemProps> = ({ set, navigation }) => {
   return set.empty ? (
     <View />
   ) : (
-    <SetView>
+    <PressableSet
+      onPress={() => {
+        navigation.navigate('CardsList', {
+          setID: set.id,
+          name: set.name,
+        });
+      }}
+    >
       <SetImage source={{ uri: set.images.logo }} resizeMode="contain" />
       <SetTitleText>{set.name}</SetTitleText>
       <SetReleaseText>{set.releaseDate}</SetReleaseText>
-    </SetView>
+    </PressableSet>
   );
 };
 
-const SetView = styled.View`
+const PressableSet = styled.Pressable`
   width: 175px;
   height: 175px;
   border-width: 1px;
