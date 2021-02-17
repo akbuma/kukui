@@ -12,6 +12,8 @@ import renderer from 'react-test-renderer';
 //   expect(tree).toMatchSnapshot();
 // });
 
+jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Video');
+
 it('renders correctly', () => {
   expect(1).toEqual(1);
 });
