@@ -5,15 +5,13 @@ import App from '../App.tsx';
 // Note: test renderer must be required after react-native.
 import renderer from 'react-test-renderer';
 
-// jest.useFakeTimers();
+jest.mock(
+  'react-native-vector-icons/MaterialCommunityIcons',
+  () => 'MaterialCommunityIcons',
+);
+jest.useFakeTimers();
 
-// it('renders correctly', async () => {
-//   const tree = renderer.create(<App />).toJSON();
-//   expect(tree).toMatchSnapshot();
-// });
-
-jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => 'Video');
-
-it('renders correctly', () => {
-  expect(1).toEqual(1);
+it('renders correctly', async () => {
+  const tree = renderer.create(<App />).toJSON();
+  expect(tree).toMatchSnapshot();
 });
